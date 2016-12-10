@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Task Manager</string>
+    <string name="date_picker_title">Note Date</string>
+    <string name="new_task">New Task</string>
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
+    <string name="subtitle_format">%1$s crimes</string>
+    <string name="choose_menu">Choose a Menu Option</string>
+    <string name="view_all_tasks">View All Tasks</string>
+    <string name="remove_task">Remove Task</string>
+    <string name="update_task">Update Task</string>
+    <string name="add_task">Add Task</string>
+    <string name="active">Active</string>
+    <string name="task_note_text">Task note</string>
+    <string name="add_username">Username</string>
+    <string name="string_is_active">Active</string>
+    <string name="string_is_inactive">Inactive</string>
+    <string name="add_date">Note Date (DD/MM/YYYY)</string>
+    <string name="enter_task_id">Enter task id</string>
+    <string name="settings">Settings</string>
+</resources>
