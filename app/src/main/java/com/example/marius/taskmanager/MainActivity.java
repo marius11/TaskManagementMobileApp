@@ -7,11 +7,6 @@ import android.net.ConnectivityManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,9 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.marius.taskmanager.Network.NetworkStateReceiver;
 import com.example.marius.taskmanager.SQLiteDB.TaskOperations;
 
@@ -31,15 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-
     private Button addTaskButton, editTaskButton, deleteTaskButton, viewAllTasksButton, viewStatsButton;
     private static final String EXTRA_TASK_ID = "com.example.marius.taskmanager.taskId";
     private static final String EXTRA_ADD_UPDATE = "com.example.marius.taskmanager.add_update";
 
     private TaskOperations taskOps;
-
     private NetworkStateReceiver networkStateReceiver;
 
     @Override
@@ -120,48 +108,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ActiveTab(), "Active");
-        adapter.addFragment(new InactiveTab(), "Inactive");
-        viewPager.setAdapter(adapter);
-    }
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
     }
 
     @Override

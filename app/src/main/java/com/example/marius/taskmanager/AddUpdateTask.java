@@ -2,10 +2,10 @@ package com.example.marius.taskmanager;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
-//import android.icu.text.SimpleDateFormat;
 import java.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -22,7 +22,7 @@ import java.util.Date;
 import com.example.marius.taskmanager.Model.Task;
 import com.example.marius.taskmanager.SQLiteDB.TaskOperations;
 
-public class AddUpdateTask extends AppCompatActivity implements DatePickerFragment.DateDialogListener {
+public class AddUpdateTask extends AppCompatActivity {
     private static final String EXTRA_TASK_ID = "com.example.marius.taskmanager.taskId";
     private static final String EXTRA_ADD_UPDATE = "com.example.marius.taskmanager.add_update";
     private static final String DIALOG_DATE = "DialogDate";
@@ -87,7 +87,7 @@ public class AddUpdateTask extends AppCompatActivity implements DatePickerFragme
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getSupportFragmentManager();
-                DatePickerFragment dialog = new DatePickerFragment();
+                DialogFragment dialog = new DialogFragment();
                 dialog.show(manager, DIALOG_DATE);
             }
         });
@@ -127,11 +127,6 @@ public class AddUpdateTask extends AppCompatActivity implements DatePickerFragme
         taskEditText.setText(oldTask.getTaskText());
         taskEditDate.setText(oldTask.getTaskDate());
         radioGroup.check(oldTask.getIsActive() == 1 ? R.id.radio_active : R.id.radio_inactive);
-    }
-
-    @Override
-    public void onFinishDialog(Date date) {
-        taskEditDate.setText(formatDate(date));
     }
 
     public String formatDate(Date date) {

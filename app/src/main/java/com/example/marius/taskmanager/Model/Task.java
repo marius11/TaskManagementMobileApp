@@ -1,7 +1,5 @@
 package com.example.marius.taskmanager.Model;
 
-import java.util.Date;
-
 public class Task
 {
     private long taskId;
