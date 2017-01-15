@@ -21,6 +21,5 @@
         <activity android:name=".AddUpdateTask" />
         <activity android:name=".ViewAllTasks" />
         <activity android:name=".PieChartView" />
-
     </application>
 </manifest>

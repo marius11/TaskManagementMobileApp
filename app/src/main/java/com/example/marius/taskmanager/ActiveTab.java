@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 public class ActiveTab extends Fragment {
 
     public ActiveTab() {
+        // Required empty public constructor
     }
 
     @Override
@@ -20,6 +21,7 @@ public class ActiveTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.active_tab, container, false);
     }
 }
