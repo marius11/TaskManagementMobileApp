@@ -67,7 +67,7 @@ public class PieChartView extends Activity {
         pieChartValues = new int[] { nrActiveTasks, nrInactiveTasks };
         for(int i = 0; i < pieChartValues.length; i++) {
             str = i == 0 ? "Active" : "Inactive";
-            mSeries.add(str /*+ (mSeries.getItemCount() + 1)*/, pieChartValues[i]);
+            mSeries.add(str, pieChartValues[i]);
             SimpleSeriesRenderer renderer = new SimpleSeriesRenderer();
             renderer.setColor(COLORS[(mSeries.getItemCount() - 1) % COLORS.length]);
             mRenderer.addSeriesRenderer(renderer);
